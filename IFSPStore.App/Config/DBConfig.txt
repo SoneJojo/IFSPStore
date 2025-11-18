@@ -1,1 +1,1 @@
-﻿Server=localhost;Prot=3306;Database=IFSPStore2025;Uid=root;Pwd=
+﻿Server=localhost;Port=3306;Database=IFSPStore2025;Uid=root;Pwd=

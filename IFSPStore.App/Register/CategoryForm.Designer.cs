@@ -28,19 +28,102 @@
         /// </summary>
         private void InitializeComponent()
         {
+            txtName = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            txtId = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            tabControlRegister.SuspendLayout();
+            tabPageRegister.SuspendLayout();
             SuspendLayout();
+            // 
+            // tabControlRegister
+            // 
+            tabControlRegister.Size = new Size(678, 339);
+            // 
+            // tabPageRegister
+            // 
+            tabPageRegister.Controls.Add(txtId);
+            tabPageRegister.Controls.Add(txtName);
+            tabPageRegister.Size = new Size(670, 304);
+            tabPageRegister.Controls.SetChildIndex(txtName, 0);
+            tabPageRegister.Controls.SetChildIndex(txtId, 0);
+            // 
+            // txtName
+            // 
+            txtName.AnimateReadOnly = false;
+            txtName.AutoCompleteMode = AutoCompleteMode.None;
+            txtName.AutoCompleteSource = AutoCompleteSource.None;
+            txtName.BackgroundImageLayout = ImageLayout.None;
+            txtName.CharacterCasing = CharacterCasing.Normal;
+            txtName.Depth = 0;
+            txtName.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtName.HideSelection = true;
+            txtName.Hint = "Name";
+            txtName.LeadingIcon = null;
+            txtName.Location = new Point(6, 16);
+            txtName.MaxLength = 32767;
+            txtName.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtName.Name = "txtName";
+            txtName.PasswordChar = '\0';
+            txtName.PrefixSuffixText = null;
+            txtName.ReadOnly = false;
+            txtName.RightToLeft = RightToLeft.No;
+            txtName.SelectedText = "";
+            txtName.SelectionLength = 0;
+            txtName.SelectionStart = 0;
+            txtName.ShortcutsEnabled = true;
+            txtName.Size = new Size(502, 48);
+            txtName.TabIndex = 5;
+            txtName.TabStop = false;
+            txtName.TextAlign = HorizontalAlignment.Left;
+            txtName.TrailingIcon = null;
+            txtName.UseSystemPasswordChar = false;
+            // 
+            // txtId
+            // 
+            txtId.AnimateReadOnly = false;
+            txtId.AutoCompleteMode = AutoCompleteMode.None;
+            txtId.AutoCompleteSource = AutoCompleteSource.None;
+            txtId.BackgroundImageLayout = ImageLayout.None;
+            txtId.CharacterCasing = CharacterCasing.Normal;
+            txtId.Depth = 0;
+            txtId.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            txtId.HideSelection = true;
+            txtId.Hint = "ID";
+            txtId.LeadingIcon = null;
+            txtId.Location = new Point(514, 16);
+            txtId.MaxLength = 32767;
+            txtId.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            txtId.Name = "txtId";
+            txtId.PasswordChar = '\0';
+            txtId.PrefixSuffixText = null;
+            txtId.ReadOnly = false;
+            txtId.RightToLeft = RightToLeft.No;
+            txtId.SelectedText = "";
+            txtId.SelectionLength = 0;
+            txtId.SelectionStart = 0;
+            txtId.ShortcutsEnabled = true;
+            txtId.Size = new Size(149, 48);
+            txtId.TabIndex = 6;
+            txtId.TabStop = false;
+            txtId.TextAlign = HorizontalAlignment.Left;
+            txtId.TrailingIcon = null;
+            txtId.UseSystemPasswordChar = false;
             // 
             // CategoryForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(684, 430);
+            ClientSize = new Size(684, 406);
             Location = new Point(0, 0);
             Name = "CategoryForm";
             Text = "CategoryForm";
+            tabControlRegister.ResumeLayout(false);
+            tabPageRegister.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
+
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtName;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit txtId;
     }
 }

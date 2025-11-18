@@ -1,4 +1,6 @@
-﻿using IFSPStore.App.Register;
+﻿using AutoMapper;
+using IFSPStore.App.Register;
+using IFSPStore.App.ViewModel;
 using IFSPStore.Domain.Base;
 using IFSPStore.Domain.Entities;
 using IFSPStore.Repository.Context;
@@ -6,14 +8,14 @@ using IFSPStore.Repository.Repository;
 using IFSPStore.Service.Service;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System.Net.NetworkInformation;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace IFSPStore.App.Infra
 {
     public static class ConfigureDI
     {
-        public static ServiceCollection services;
-        public static IcmpV4Statistics? serviceProvider;
+        public static ServiceCollection? services;
+        public static IServiceProvider? serviceProvider;
 
         public static void ConfigureServices()
         {
@@ -29,6 +31,12 @@ namespace IFSPStore.App.Infra
             services.AddScoped<IBaseRepository<Category>, BaseRepository<Category>>();
             services.AddScoped<IBaseService<Category>, BaseService<Category>>();
             services.AddScoped<CategoryForm, CategoryForm>();
+
+            services.AddSingleton(
+                new MapperConfiguration(
+                    config => { config.CreateMap<Category, CategoryViewModel>(); },
+                    NullLoggerFactory.Instance).CreateMapper());
+
             serviceProvider = services.BuildServiceProvider();
         }
     }

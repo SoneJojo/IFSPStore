@@ -1,4 +1,6 @@
 using IFSPStore.App.Infra;
+using IFSPStore.App.Register;
+using Microsoft.Extensions.DependencyInjection;
 using ReaLTaiizor.Forms;
 
 namespace IFSPStore.App
@@ -9,13 +11,27 @@ namespace IFSPStore.App
         {
             InitializeComponent();
         }
+
+        private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ShowForm<CategoryForm>();
+        }
+
         private void ShowForm<TFormulario>() where TFormulario : Form
         {
             var cad = ConfigureDI.serviceProvider!.GetService<TFormulario>();
-            if(cad != null && !cad.IsDisposed)
+            if (cad != null && !cad.IsDisposed)
             {
-                cad.MdiParent;
-                cad.
+                cad.MdiParent = this;
+                cad.Show();
+            }
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.ApplicationExitCall)
+            {
+                e.Cancel = true;
             }
         }
     }

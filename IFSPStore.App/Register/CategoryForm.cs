@@ -1,14 +1,15 @@
 ﻿using IFSPStore.App.Base;
+using IFSPStore.App.ViewModel;
 using IFSPStore.Domain.Base;
 using IFSPStore.Domain.Entities;
 using IFSPStore.Service.Validators;
 
 namespace IFSPStore.App.Register
 {
-    public partial class CategoryForm: BaseForm
+    public partial class CategoryForm : BaseForm
     {
         private IBaseService<Category> _categoryService;
-        private List<Category>? categories;
+        private List<CategoryViewModel>? categories;
         public CategoryForm(IBaseService<Category> categoryService)
         {
             _categoryService = categoryService;
@@ -35,7 +36,9 @@ namespace IFSPStore.App.Register
                     FormToObject(category);
                     _categoryService.Add<Category, Category, CategoryValidator>(category);
                 }
-            }catch(Exception ex)
+                tabControlRegister.SelectedIndex = 1;
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, @"IFSP Store", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -44,9 +47,7 @@ namespace IFSPStore.App.Register
         {
             try
             {
-                var category = new Category();
-                FormToObject(category);
-                _categoryService.Add<Category, Category, CategoryValidator>(category);
+                _categoryService.Delete(id);
             }
             catch (Exception ex)
             {
@@ -55,14 +56,14 @@ namespace IFSPStore.App.Register
         }
         protected override void PopulateGrid()
         {
-            categories = _categoryService.Get<Category>().ToList();
+            categories = _categoryService.Get<CategoryViewModel>().ToList();
             dataGridViewList.DataSource = categories;
             dataGridViewList.Columns["Name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
         protected override void GridToForm(DataGridViewRow? record)
         {
             txtId.Text = record?.Cells["Id"].Value.ToString();
-            txtName.Text = record.Cells["Name"].Value.ToString();
+            txtName.Text = record?.Cells["Name"].Value.ToString();
         }
     }
 }

@@ -59,7 +59,7 @@ namespace IFSPStore.App.Base
         }
         #endregion
 
-        #region Mathods
+        #region Methods
         private void ClearFields()
         {
             IsEditMode = false;
