@@ -8,7 +8,6 @@ namespace IFSPStore.Repository.Mapping
     {
         public void Configure(EntityTypeBuilder<City> builder)
         {
-            //checked
             builder.ToTable("City");
             builder.HasKey(prop => prop.Id);
             builder.Property(prop => prop.Name)

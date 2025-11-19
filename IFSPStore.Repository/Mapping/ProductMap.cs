@@ -8,7 +8,6 @@ namespace IFSPStore.Repository.Mapping
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
-            //checked
             builder.ToTable("Product");
             builder.HasKey(prop => prop.Id);
             builder.Property(prop => prop.Name)
@@ -16,6 +15,7 @@ namespace IFSPStore.Repository.Mapping
                 .HasMaxLength(100);
             builder.Property(prop => prop.Price);
             builder.Property(prop => prop.Quantity);
+            builder.Property(prop => prop.PurchaseDate);
             builder.Property(prop => prop.SalesUnit)
                 .HasMaxLength(10);
             builder.HasOne(prop => prop.Category);

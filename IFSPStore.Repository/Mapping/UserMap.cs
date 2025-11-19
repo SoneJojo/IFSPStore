@@ -8,7 +8,6 @@ namespace IFSPStore.Repository.Mapping
     {
         public void Configure(EntityTypeBuilder<User> builder)
         {
-            //checked
             builder.ToTable("User");
             builder.HasKey(prop => prop.Id);
             builder.Property(prop => prop.Name)

@@ -6,7 +6,7 @@ namespace IFSPStore.Repository.Mapping
 {
     public class CategoryMap: IEntityTypeConfiguration<Category>
     {
-        public void Configure(EntityTypeBuilder<Category> builder) 
+        public void Configure(EntityTypeBuilder<Category> builder)
         {
             //checked
             builder.ToTable("Category");

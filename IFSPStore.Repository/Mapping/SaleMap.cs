@@ -25,7 +25,6 @@ namespace IFSPStore.Repository.Mapping
     {
         public void Configure(EntityTypeBuilder<SaleItem> builder)
         {
-            //checked
             builder.ToTable("SaleItem");
             builder.HasKey(prop => prop.Id);
             builder.Property(prop => prop.Quantity);

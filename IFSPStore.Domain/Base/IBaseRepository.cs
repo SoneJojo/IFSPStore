@@ -8,7 +8,7 @@
         void Update(TEntity obj);
         void Delete(object id);
         IList<TEntity> Select(IList<string>? includes = null);
-        TEntity Select(object id, IList<string>? includes = null);  
+        TEntity Select(object id, IList<string>? includes = null);
 
     }
 }
